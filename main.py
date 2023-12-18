@@ -1,10 +1,15 @@
 expression = input("Entrez une chaîne de caractères contenant des chiffres et des opérateurs : ")
 
+expressionListe = list(expression)
+while " " in expressionListe:
+    expressionListe.remove(" ")
+
 chiffres = []
 operateurs = []
 inconnus = []
 
 nombre_en_cours = ""
+
 for caractere in expression:
     if caractere.isdigit():
         nombre_en_cours += caractere
@@ -24,25 +29,43 @@ if len(chiffres) and len(operateurs) == 0:
     exit(1)
 
 if len(chiffres) != len(operateurs) + 1:
-    print("Erreur, le nombre d'opérateur est incorrect!")
+    print("Erreur, le nombre d'opérateurs est incorrect!")
     print("Exemple correct : 1+1+1 / Exemple incorrect : 1+1+1+")
     exit(1)
+
+if (len(expressionListe) >= 5 and expressionListe[-1] in operateurs and expressionListe[-2] in
+        operateurs):
+    print("Exception!")
+    chiffres.reverse()
 
 print("Liste des chiffres:", chiffres)
 print("Liste des opérateurs:", operateurs)
 print("Liste des caractères inconnus:", inconnus)
+print("Liste de l'expression:", expressionListe)
 
 reformulation = []
+addition = False
 
-for i in range(max(len(chiffres), len(operateurs))):
-    if i < len(chiffres):
+for i in range(len(operateurs)):
+    if operateurs[i] == '+':
+        reformulation.append('(')
+        addition = True
+    else:
+        addition = False
+
+    if not addition:
+        pass
+    else:
         reformulation.append(chiffres[i])
-    if i < len(operateurs):
-        reformulation.append(operateurs[i])
+
+    reformulation.append(operateurs[i])
+
+    reformulation.append(chiffres[i + 1])
+
+    if operateurs[i] == '+':
+        reformulation.append(')')
 
 print("Reformulation:", reformulation)
 
 resultat = ''.join(map(str, reformulation))
-print("Le résultat est ", eval(resultat))
-
-"""Problème : le calcul numéro 5 ne fonctionne pas"""
+print("Le résultat est", eval(resultat))
