@@ -36,7 +36,10 @@ if len(chiffres) != len(operateurs) + 1:
 if (len(expressionListe) >= 5 and expressionListe[-1] in operateurs and expressionListe[-2] in
         operateurs):
     print("Exception!")
-    chiffres.reverse()
+    if expressionListe[-1] == '*':
+        chiffres.reverse()
+    else:
+        operateurs.reverse()
 
 print("Liste des chiffres:", chiffres)
 print("Liste des opérateurs:", operateurs)
@@ -69,3 +72,5 @@ print("Reformulation:", reformulation)
 
 resultat = ''.join(map(str, reformulation))
 print("Le résultat est", eval(resultat))
+
+"""" Calcul 5 non fonctionnel """
