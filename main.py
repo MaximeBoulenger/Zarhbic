@@ -2,9 +2,11 @@
     Modules:
     - sys : Accéder à certaines fonctionnalités spécifiques du système d'exploitation.
     - deque : Importer la classe deque pour utiliser des files.
+    - sympify : Calculer le résultat final de façon sécurisé
 """
 import sys
 from collections import deque
+from sympy import sympify
 
 
 class Zarhbic:
@@ -108,7 +110,7 @@ class Zarhbic:
         Affiche l'expression complète et le résultat final du calcul.
         """
         print(self.expression_complete)
-        print("Résultat final :", eval(self.expression_complete))
+        print("Résultat final :", sympify(self.expression_complete))
 
 
 def main():
