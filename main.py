@@ -1,8 +1,20 @@
-import sys
-from collections import deque
+import sys  # Accéder à certaines fonctionnalités spécifiques du système d'exploitation.
+from collections import deque  # Importe la classe deque pour utiliser des files.
 
 
 class Zarhbic:
+    """
+    Classe Zarhbic pour traiter des expressions mathématiques simplifiées.
+
+    Attributes:
+    - expression_complete (str): L'expression mathématique complète après traitement.
+    - expression (str): L'expression mathématique d'origine sous forme de chaîne de caractères.
+    - expressionListe (list): Une liste des caractères de l'expression sans espaces.
+    - chiffres (collections.deque): Une file pour stocker les chiffres extraits de l'expression.
+    - operateurs (collections.deque): Une file pour stocker les opérateurs extraits de l'expression.
+    - nombre_en_cours (str): Variable temporaire pour construire les nombres pendant le traitement.
+    """
+
     def __init__(self, expression):
         """
         Initialise une instance de la classe Zarhbic.
