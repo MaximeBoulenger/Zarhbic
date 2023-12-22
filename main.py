@@ -1,5 +1,10 @@
-import sys  # Accéder à certaines fonctionnalités spécifiques du système d'exploitation.
-from collections import deque  # Importe la classe deque pour utiliser des files.
+"""
+    Modules:
+    - sys : Accéder à certaines fonctionnalités spécifiques du système d'exploitation.
+    - deque : Importer la classe deque pour utiliser des files.
+"""
+import sys
+from collections import deque
 
 
 class Zarhbic:
