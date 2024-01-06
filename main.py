@@ -73,9 +73,9 @@ class Zarhbic:
             print("Erreur, le calcul a mal été saisi.")
             sys.exit()
 
-    def inverser_operateurs(self):
+    def inverser_files(self):
         """
-        Inverse les opérateurs dans certains cas spécifiques.
+        Inverse les opérateurs ou les opérandes dans certains cas spécifiques.
         """
         if (len(self.operateurs) >= 2 and self.expressionListe[-1] == '-' and
                 self.expressionListe[-2] in ['+', '-', '*', '/']):
@@ -126,7 +126,7 @@ def main():
     zarhbic.traiter_expression()
     zarhbic.afficher_resultat()
     zarhbic.verifier_calcul()
-    zarhbic.inverser_operateurs()
+    zarhbic.inverser_files()
     zarhbic.construire_expression_complete()
     zarhbic.afficher_resultat_final()
 
