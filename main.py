@@ -32,12 +32,19 @@ class Zarhbic:
         self.expression_complete = None
         self.expression = expression
         self.expressionListe = list(expression)
-        while " " in self.expressionListe:
-            self.expressionListe.remove(" ")
-
         self.chiffres = deque()
         self.operateurs = deque()
         self.nombre_en_cours = ""
+
+    def saisir_expression(self):
+        """
+        Demande à l'utilisateur une expression mathématique.
+        """
+        self.expression = input("Entrez une chaîne de caractères contenant des chiffres et des"
+                                " opérateurs : ")
+        self.expressionListe = list(self.expression)
+        while " " in self.expressionListe:
+            self.expressionListe.remove(" ")
 
     def traiter_expression(self):
         """
@@ -115,14 +122,11 @@ class Zarhbic:
 
 def main():
     """
-    Fonction principale du programme. Demande à l'utilisateur une expression mathématique,
-    crée une instance de Zarhbic, traite l'expression, effectue des opérations et affiche
-    le résultat final.
+    Fonction principale du programme. Crée une instance de Zarhbic, saisit l'expression,
+    traite l'expression, effectue des opérations et affiche le résultat final.
     """
-    expression_utilisateur = input("Entrez une chaîne de caractères contenant des chiffres et des"
-                                   " opérateurs : ")
-
-    zarhbic = Zarhbic(expression_utilisateur)
+    zarhbic = Zarhbic("")
+    zarhbic.saisir_expression()
     zarhbic.traiter_expression()
     zarhbic.afficher_resultat()
     zarhbic.verifier_calcul()
