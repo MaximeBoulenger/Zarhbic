@@ -14,7 +14,7 @@ class Zarhbic:
     Classe Zarhbic pour traiter des expressions mathématiques simplifiées.
 
     Attributes:
-    - expression_complete (str): L'expression mathématique complète après traitement.
+    - expressionComplete (str): L'expression mathématique complète après traitement.
     - expression (str): L'expression mathématique d'origine sous forme de chaîne de caractères.
     - expressionListe (list): Une liste des caractères de l'expression sans espaces.
     - chiffres (collections.deque): Une file pour stocker les chiffres extraits de l'expression.
@@ -29,7 +29,7 @@ class Zarhbic:
         Parameters:
         - expression (str): L'expression mathématique sous forme de chaîne de caractères.
         """
-        self.expression_complete = None
+        self.expressionComplete = None
         self.expression = expression
         self.expressionListe = list(expression)
         self.chiffres = deque()
@@ -98,26 +98,26 @@ class Zarhbic:
         Construit l'expression complète à partir des chiffres et opérateurs traités.
         """
         if len(self.operateurs) == 1:
-            self.expression_complete = f"{self.chiffres[1]} {self.operateurs[0]} {self.chiffres[0]}"
+            self.expressionComplete = f"{self.chiffres[1]} {self.operateurs[0]} {self.chiffres[0]}"
         elif self.operateurs[0] == '+':
-            self.expression_complete = (f"{self.chiffres[2]} {self.operateurs[1]}"
-                                        f" ({self.chiffres[1]} {self.operateurs[0]}"
-                                        f" {self.chiffres[0]})")
+            self.expressionComplete = (f"{self.chiffres[2]} {self.operateurs[1]}"
+                                       f" ({self.chiffres[1]} {self.operateurs[0]}"
+                                       f" {self.chiffres[0]})")
         elif self.operateurs[1] == '+':
-            self.expression_complete = (f"({self.chiffres[2]} {self.operateurs[1]}"
-                                        f" {self.chiffres[1]}) {self.operateurs[0]}"
-                                        f" {self.chiffres[0]}")
+            self.expressionComplete = (f"({self.chiffres[2]} {self.operateurs[1]}"
+                                       f" {self.chiffres[1]}) {self.operateurs[0]}"
+                                       f" {self.chiffres[0]}")
         else:
-            self.expression_complete = (f"{self.chiffres[2]} {self.operateurs[1]} "
-                                        f"{self.chiffres[1]} {self.operateurs[0]}"
-                                        f" {self.chiffres[0]}")
+            self.expressionComplete = (f"{self.chiffres[2]} {self.operateurs[1]} "
+                                       f"{self.chiffres[1]} {self.operateurs[0]}"
+                                       f" {self.chiffres[0]}")
 
     def afficher_resultat_final(self):
         """
         Affiche l'expression complète et le résultat final du calcul.
         """
-        print(self.expression_complete)
-        print("Résultat final :", sympify(self.expression_complete))
+        print(self.expressionComplete)
+        print("Résultat final :", sympify(self.expressionComplete))
 
 
 def main():
